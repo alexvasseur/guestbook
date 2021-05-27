@@ -30,6 +30,12 @@ docker run -it -p 8080:80 guestbook
 docker run -it -p 8080:80 -e REDIS_HOST=host.docker.internal  -e REDIS_PASSWORD=foo
 ```
 
+## Kubernetes OpenShift
+
+On OpenShift you may need to run in your namespace:
+```oc adm policy add-scc-to-user anyuid -z default```
+as the base image for that container is running Apache HTTPd as root on port 80 which OpenShift SCC won't allow by default.
+
 # Testing the app
 
 ```
