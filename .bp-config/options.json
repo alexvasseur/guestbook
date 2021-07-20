@@ -1,0 +1,4 @@
+{
+    "PHP_EXTENSIONS": ["redis"],
+    "PHP_VERSION": "{PHP_74_LATEST}"
+}

@@ -13,8 +13,13 @@
 # limitations under the License.
 FROM php:7.4.7-apache
 
+# if using Predis - which is not the case anymore
 RUN pear channel-discover pear.nrk.io
 RUN pear install nrk/Predis
+
+# using redis.so
+RUN pecl install redis-5.3.4 \
+    && docker-php-ext-enable redis
 
 ADD guestbook.php /var/www/html/guestbook.php
 ADD controllers.js /var/www/html/controllers.js
